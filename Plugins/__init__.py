@@ -1,2 +1,2 @@
 """Package initialization."""
-from .shortener import Shortener
+from plugins import Shortener
