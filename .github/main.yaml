@@ -1,0 +1,52 @@
+name: CICD on branch - Main Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  setup-build-publish-deploy:
+    name: Setup, Build, and Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
+        continue-on-error: true
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: pkill -f "python3 -m animeSupport"
+      
+      - name: Create env file
+        uses: "finnp/create-file-action@master"
+        env:
+          FILE_NAME: "env.json"
+          FILE_DATA: ${{ secrets.KEYS }}
+
+      - name: Deploy to Production server
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+          ARGS: "-rltgoDzvO"
+          SOURCE: "./"
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          TARGET: ${{ secrets.REMOTE_TARGET }}
+      
+      - name: executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            cd ${{ secrets.REMOTE_TARGET }}
+            pip3 install -r requirements.txt
+            nohup python3 -m animeSupport &>/dev/null &
+            ls
