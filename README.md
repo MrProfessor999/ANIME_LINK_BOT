@@ -1,1 +1,2 @@
-# ANIME_LINK_BOT
+# anime-support-bot
+
