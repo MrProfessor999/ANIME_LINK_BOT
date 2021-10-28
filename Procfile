@@ -1,1 +1,1 @@
-worker: python3 muxbot.py
+worker: python3 ANIME_LINK_BOT.py
