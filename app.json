@@ -1,15 +1,15 @@
 {
 	"name": "Sub-Muxer",
-	"description": "Telegram bot to mux subtitles with the video",
+	"description": "Telegram bot to know about anime and download anime",
 	"keywords": [
 		"telegram-bot",
 		"subtitles",
 		"muxing"
 	],
-	"repository": "https://github.com/mohdsabahat/sub-muxer",
+	"repository": "https://github.com/MrProfessor999/ANIME_LINK_BOT",
 	"formation": {
 		"worker": {
-			"quantity": 1,
+			"quantity": 4,
 			"size": "free"
 		}
 	},
@@ -22,10 +22,8 @@
 		},
 		"APP_ID": {
 			"description": "App Id of your app."
-		},
-		"ALLOWED_USERS": {
-			"description": "User id of users seperated by a comma allowed to use the bot."
-		}
+		
+	
 	},
 	"buildpacks": [
 		{
