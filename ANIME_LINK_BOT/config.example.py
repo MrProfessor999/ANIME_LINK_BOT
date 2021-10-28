@@ -1,10 +1,10 @@
 class Config(object):
     LOGGER = True
 
-    APP_ID = 46372547
-    API_HASH = 'pdhsghfhfgjsfhaghgfhjfasjgj'
-    BOT_TOKEN = '1377736365:AAEFwpa-GGEne5XHyxYAK4wbw7P17BdaDmaM'
-    ADMINS = []
+    APP_ID = '7813081'
+    API_HASH = 'deccd07c38a5ec9fa0fa6e58790fe292'
+    BOT_TOKEN = '2034296193:AAHXmC1yQ8VycRLerTjYG7QRC8wSe6csdC0'
+    ADMINS = [1296817425]
     ############################################################
 
     Command = ['!', '.']
