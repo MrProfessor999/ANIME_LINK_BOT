@@ -25,13 +25,7 @@
 		
 
 		}
-	
-	
-	},
-	"buildpacks": [
-		{
-			"url": "https://github.com/MrProfessor999/heroku-buildpack-ffmpeg-latest"
-		},
+
 		{
 			"url": "heroku/python"
 		}
