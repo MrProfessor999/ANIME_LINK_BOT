@@ -25,9 +25,5 @@
 		
 
 		}
-
-		{
-			"url": "heroku/python"
-		}
 	]
 }
